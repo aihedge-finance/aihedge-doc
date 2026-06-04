@@ -1,0 +1,8 @@
+{
+  "label": "Curator Functions",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Custody-free vault creation and curation parameters."
+  }
+}

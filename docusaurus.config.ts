@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'AIHedge Documentation',
   tagline: 'The AI-Powered Decentralized Hedge Fund Protocol',
-  favicon: 'img/favicon.svg',
+  favicon: 'img/logo/logo1.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
