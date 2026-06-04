@@ -5,31 +5,31 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'AIHedge Documentation',
+  tagline: 'The AI-Powered Decentralized Hedge Fund Protocol',
+  favicon: 'img/favicon.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  url: 'https://docs.aihedge.finance',
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'aihedge-finance',
+  projectName: 'aihedge-doc',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  markdown: {
+    // Treat .md as CommonMark (not MDX) to avoid JSX parse errors in math/LaTeX
+    format: 'detect',
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -41,26 +41,12 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // Serve docs at the site root (/) instead of /docs/
+          routeBasePath: '/',
+          editUrl: 'https://github.com/aihedge-finance/aihedge-doc/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        // Blog is disabled — using an external blog system
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -69,27 +55,52 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/logo/logo2.png',
     colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: '',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'AIHedge Logo',
+        src: 'img/logo/logo2.png',
       },
       items: [
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://aihedge.finance/#how-it-works',
+          label: 'How It Works',
+          position: 'left',
+        },
+        {
+          href: 'https://aihedge.finance/#curators',
+          label: 'Vault Creation',
+          position: 'left',
+        },
+        {
+          href: 'https://aihedge.finance/partners',
+          label: 'Ecosystem',
+          position: 'left',
+        },
+        {
+          href: 'https://aihedge.finance/whitepaper.pdf',
+          label: 'Whitepaper',
+          position: 'left',
+        },
+        {
+          href: 'https://dapp.aihedge.finance',
+          label: 'Launch App',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/aihedge-finance',
           label: 'GitHub',
           position: 'right',
         },
@@ -97,13 +108,40 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
+      logo: {
+        alt: 'AIHedge Logo',
+        src: 'img/logo/logo2.png',
+        href: 'https://aihedge.finance',
+        width: 160,
+      },
       links: [
         {
-          title: 'Docs',
+          title: 'Documentation',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Introduction',
+              to: '/',
+            },
+            {
+              label: 'Whitepaper',
+              href: 'https://aihedge.finance/whitepaper.pdf',
+            },
+          ],
+        },
+        {
+          title: 'Protocol',
+          items: [
+            {
+              label: 'How It Works',
+              href: 'https://aihedge.finance/#how-it-works',
+            },
+            {
+              label: 'Vault Creation',
+              href: 'https://aihedge.finance/#curators',
+            },
+            {
+              label: 'Ecosystem',
+              href: 'https://aihedge.finance/partners',
             },
           ],
         },
@@ -111,34 +149,34 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'GitHub',
+              href: 'https://github.com/aihedge-finance',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Twitter / X',
+              href: 'https://x.com/AIHEDGE_finance',
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'Telegram',
+              href: 'https://t.me/aiartinc',
             },
           ],
         },
         {
-          title: 'More',
+          title: 'App',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Launch DApp',
+              href: 'https://dapp.aihedge.finance',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'Main Website',
+              href: 'https://aihedge.finance',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} AIHedge Finance. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
