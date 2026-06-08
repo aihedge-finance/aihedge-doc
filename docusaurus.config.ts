@@ -94,11 +94,6 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://aihedge.finance/whitepaper.pdf',
-          label: 'Whitepaper',
-          position: 'left',
-        },
-        {
           href: 'https://dapp.aihedge.finance',
           label: 'Launch App',
           position: 'right',
