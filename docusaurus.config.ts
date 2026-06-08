@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import packageJson from './package.json';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -107,6 +108,11 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
+        {
+          type: 'html',
+          position: 'right',
+          value: `<span class="badge badge--secondary" style="font-family: monospace; font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.5rem; margin-left: 0.5rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">v${packageJson.version}</span>`,
+        },
       ],
     },
     footer: {
@@ -179,7 +185,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} AIHedge Finance. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} AIHedge Finance. Built with Docusaurus (v${packageJson.version}).`,
     },
     prism: {
       theme: prismThemes.github,
