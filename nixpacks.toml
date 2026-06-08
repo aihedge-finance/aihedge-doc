@@ -1,0 +1,8 @@
+# Nixpacks configuration for Railway deployment
+# For more info: https://nixpacks.com/docs/configuration/toml
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+runCmd = "npm run serve -- --port $PORT --host 0.0.0.0"
