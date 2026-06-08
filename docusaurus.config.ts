@@ -28,6 +28,7 @@ const config: Config = {
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },
+    mermaid: true,
   },
 
   i18n: {
@@ -53,6 +54,8 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+
+  themes: ['@docusaurus/theme-mermaid'],
 
   themeConfig: {
     image: 'img/logo/logo2.png',
