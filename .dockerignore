@@ -1,0 +1,28 @@
+# Ignore local dependencies and builds
+node_modules
+build
+.docusaurus
+
+# Ignore Git
+.git
+.gitignore
+
+# Ignore GitHub workflows and hook scripts
+.github
+scripts
+
+# Ignore logs and caches
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+
+# Ignore IDE / Editor configs
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
