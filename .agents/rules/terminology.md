@@ -7,6 +7,7 @@ Guidelines and standards for documentation, terminology, and glossary maintenanc
 ## 1. Vault Standards & Brand Restrictions
 - **Zero Mentions of Yearn**: Never mention "Yearn", "Yearn Finance", or "Yearn V3" in documentation, UI copy, diagrams, or explanatory text.
 - **Use ERC-4626**: Always refer to vault architecture using the **ERC-4626 Tokenized Vault standard**, **multi-strategy yield vaults**, or **modular vault allocator** terminology.
+- **Market Making over LP Provider**: Never use "LP Provider" or "Liquidity Provider" in product copy. Always substitute with **Market Making** (or **Market Making Strategy**).
 
 ---
 
