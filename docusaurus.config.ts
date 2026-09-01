@@ -10,6 +10,17 @@ const config: Config = {
   tagline: 'The AI-Powered Decentralized Hedge Fund Protocol',
   favicon: 'img/logo/logo1.png',
 
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    },
+    {
+      tagName: 'link',
+      attributes: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
+    },
+  ],
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
@@ -83,7 +94,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: '',
+      title: 'AIHedge',
       logo: {
         alt: 'AIHedge Logo',
         src: 'img/logo/logo2.png',

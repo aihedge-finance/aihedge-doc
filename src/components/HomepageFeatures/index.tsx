@@ -5,52 +5,60 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  icon: string;
+  gradient: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'AI-Powered Allocation',
+    icon: '🧠',
+    gradient: 'linear-gradient(135deg, hsl(168,72%,52%) 0%, hsl(200,80%,55%) 100%)',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Reinforcement learning and regime-detection models continuously analyze yield
+        opportunities, gas costs, and liquidity depth — dynamically routing capital
+        to maximize risk-adjusted returns in real time.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Non-Custodial Vaults',
+    icon: '🔐',
+    gradient: 'linear-gradient(135deg, hsl(260,70%,62%) 0%, hsl(168,72%,52%) 100%)',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Built on the ERC-4626 vault standard, AIHedge vaults are fully non-custodial.
+        Depositors retain sovereign exit rights at all times — no lock-ups, no
+        permissions, no intermediaries.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Multi-Chain Engine',
+    icon: '⚡',
+    gradient: 'linear-gradient(135deg, hsl(38,90%,55%) 0%, hsl(168,72%,52%) 100%)',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        A cross-chain deployment layer routes capital across Ethereum, Arbitrum,
+        and emerging EVM networks — capturing premium yield from the best protocols
+        wherever opportunity arises.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, icon, gradient, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={clsx('col col--4', styles.featureCol)}>
+      <div className={styles.featureCard}>
+        <div className={styles.featureIconWrap}>
+          <div className={styles.featureIconBg} style={{background: gradient}} />
+          <span className={styles.featureIcon}>{icon}</span>
+        </div>
+        <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
+        <p className={styles.featureDesc}>{description}</p>
       </div>
     </div>
   );
@@ -60,6 +68,16 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionBadge}>Protocol Capabilities</span>
+          <Heading as="h2" className={styles.sectionTitle}>
+            Built for serious capital
+          </Heading>
+          <p className={styles.sectionSubtitle}>
+            Every component of AIHedge is designed for institutional-grade
+            yield optimization — precise, transparent, and non-custodial.
+          </p>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
