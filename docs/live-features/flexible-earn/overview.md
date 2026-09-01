@@ -42,12 +42,12 @@ Flexible Earn is ideal for:
 
 ---
 
-## Difference from Yield Vaults
+## Comparison Across AI Hedge Products
 
-| | Flexible Earn | Yield Vaults |
-|---|---|---|
-| **Asset type** | Stablecoins & blue-chips | Broader range |
-| **Strategy complexity** | Simple (lending only) | Multi-strategy |
-| **APY profile** | Stable, lower | Variable, higher potential |
-| **Risk level** | Conservative | Conservative to Aggressive |
-| **Lockup** | None | None |
+| Feature | Flexible Earn (Savings) | Multi-Strategy Yield Vaults | Liquid Staking |
+| :--- | :--- | :--- | :--- |
+| **Underlying Asset** | Stablecoins (USDC, USDT, DAI) | Single underlying asset (USDC) | ETH |
+| **Strategy Execution** | Direct single-asset lending (Aave / Morpho) | AI-allocated multi-strategy (Morpho, Curve, rlUSD) | Native PoS staking via Ether.fi (`weETH`) |
+| **Yield Source** | Lending market interest | Blended interest + AMM swap fees + incentives | Consensus rewards + MEV + staking yield |
+| **Risk Profile** | Conservative | Optimized & Curated | Medium (Smart contract + staking protocol) |
+| **Lockup Period** | None (instant redemption) | None (instant redemption) | None (liquid receipt token) |
