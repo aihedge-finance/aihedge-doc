@@ -100,6 +100,14 @@ const config: Config = {
           label: 'How It Works',
           position: 'left',
         },
+        /*
+        // Hidden for now — uncomment when Vault Creation is ready:
+        {
+          href: 'https://aihedge.finance/#curators',
+          label: 'Vault Creation',
+          position: 'left',
+        },
+        */
         {
           href: 'https://aihedge.finance/partners',
           label: 'Ecosystem',
@@ -160,6 +168,13 @@ const config: Config = {
               label: 'How It Works',
               href: 'https://aihedge.finance/#how-it-works',
             },
+            /*
+            // Hidden for now — uncomment when Vault Creation is ready:
+            {
+              label: 'Vault Creation',
+              href: 'https://aihedge.finance/#curators',
+            },
+            */
             {
               label: 'Ecosystem',
               href: 'https://aihedge.finance/partners',
