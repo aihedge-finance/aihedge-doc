@@ -222,7 +222,7 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
   font-size: 0.75rem !important;
 }
 
-/* ─── Sidebar ─────────────────────────────────────────────────────────────── */
+/* ─── Docs Sidebar ───────────────────────────────────────────────────────── */
 .theme-doc-sidebar-container {
   border-right: 1px solid var(--ifm-color-emphasis-200);
 }
@@ -266,6 +266,85 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
   text-transform: uppercase;
   letter-spacing: 0.07em;
   color: var(--ifm-color-content-secondary) !important;
+}
+
+/* ─── Blog / Letters Sidebar ─────────────────────────────────────────────── */
+[class*='sidebarItemTitle_'],
+.sidebarItemTitle {
+  font-size: 1.1rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+  color: var(--ifm-color-content) !important;
+  margin-bottom: 1.25rem !important;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+[class*='yearGroupHeading_'],
+.yearGroupHeading {
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ifm-color-content-secondary) !important;
+  padding: 0.2rem 0.6rem !important;
+  background: var(--ifm-color-emphasis-200);
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+[class*='sidebarItemList_'],
+.sidebarItemList {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.55rem !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+[class*='sidebarItem_'],
+.sidebarItem {
+  margin: 0 !important;
+}
+
+/* Distinct card-item styling for each letter link in sidebar */
+[class*='sidebarItemLink_'],
+.sidebarItemLink {
+  display: block !important;
+  font-size: 0.835rem !important;
+  line-height: 1.45 !important;
+  font-weight: 500 !important;
+  color: var(--ifm-color-content) !important;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none !important;
+}
+
+[class*='sidebarItemLink_']:hover,
+.sidebarItemLink:hover {
+  border-color: var(--aihedge-teal) !important;
+  background: var(--aihedge-teal-alpha) !important;
+  color: var(--aihedge-teal) !important;
+  transform: translateX(2px);
+  text-decoration: none !important;
+}
+
+/* Active letter link */
+[class*='sidebarItemLinkActive_'],
+.sidebarItemLinkActive,
+[class*='sidebarItemLink_'][class*='Active'],
+[class*='sidebarItemLink_'].sidebarItemLinkActive {
+  background: var(--aihedge-teal-alpha) !important;
+  border-color: var(--aihedge-teal) !important;
+  border-left: 3px solid var(--aihedge-teal) !important;
+  color: var(--aihedge-teal) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* ─── Doc Content Area ───────────────────────────────────────────────────── */
@@ -441,7 +520,7 @@ blockquote p {
 }
 
 /* ─── Blog / Letters Listing ─────────────────────────────────────────────── */
-/* When there is no TOC on the list page, expand main column to fill 9 cols (3 col sidebar + 9 col main = 12 cols) */
+/* Expand main column to fill 9 cols on list page since there is no TOC */
 .blog-list-page main.col {
   --ifm-col-width: calc(9 / 12 * 100%);
   flex: 0 0 var(--ifm-col-width);
