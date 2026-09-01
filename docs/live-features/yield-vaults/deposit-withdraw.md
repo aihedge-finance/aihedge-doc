@@ -77,12 +77,13 @@ Here is what each item means in simple terms:
 
 ### Step 4: Approve & Deposit
 
-1. Click **Approve** (if prompted) to authorize spending of your source token.
-2. Click **Deposit** (or **Swap & Deposit**) and confirm the transaction in your connected wallet.
-3. The system automatically executes the swap, bridges the funds to the target vault chain, and deposits them into the vault. Once finality is reached, your vault balance updates automatically.
+1. **Network Alignment**: If your connected wallet is on a different blockchain than the vault or selected source route, the primary action button will dynamically display **"Switch to [Network]"** (e.g., *Switch to Ethereum* or *Switch to Base*). Clicking it prompts your wallet to switch chains automatically via standard RPC prompts (`wallet_switchEthereumChain`).
+2. **Approve Token**: Click **Approve** (if prompted) to authorize spending of your source token.
+3. **Confirm Deposit**: Click **Deposit** (or **Swap & Deposit**) and confirm the transaction in your connected wallet.
+4. **Execution**: The system automatically executes the transaction (and any necessary cross-chain swaps/bridges) and mints your vault shares. Once confirmed on-chain, your deposit balance and activity history update immediately.
 
 > [!TIP]
-> **No Destination Gas Needed**: You only pay gas on the source network where you initiate the deposit. The routing mechanism manages destination execution seamlessly.
+> **No Destination Gas Needed**: When using cross-chain deposits, you only pay gas on the source network where you initiate the deposit. The routing mechanism manages destination execution seamlessly.
 
 ---
 
