@@ -165,18 +165,51 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
 
 /* Launch App button */
 .navbar__item.navbar__link[href*='dapp'] {
-  background: var(--aihedge-teal);
-  color: #0d1117 !important;
+  background: #0f172a;
+  color: #ffffff !important;
   font-weight: 600;
+  font-size: 0.85rem;
   border-radius: 8px;
-  padding: 0.375rem 1rem;
-  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+  padding: 0.45rem 1.1rem;
+  margin-left: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12), 0 1px 2px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar__item.navbar__link[href*='dapp'] svg {
+  color: currentColor;
+  opacity: 0.85;
 }
 
 .navbar__item.navbar__link[href*='dapp']:hover {
-  background: var(--aihedge-teal) !important;
-  opacity: 0.88;
-  box-shadow: var(--aihedge-glow);
+  background: #1e293b !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+[data-theme='dark'] .navbar__item.navbar__link[href*='dapp'] {
+  background: linear-gradient(135deg, hsl(168, 75%, 48%) 0%, hsl(175, 80%, 42%) 100%);
+  color: #091210 !important;
+  font-weight: 700;
+  border: 1px solid hsla(168, 80%, 65%, 0.3);
+  box-shadow: 0 0 16px hsla(168, 75%, 48%, 0.28);
+}
+
+[data-theme='dark'] .navbar__item.navbar__link[href*='dapp'] svg {
+  color: #091210;
+}
+
+[data-theme='dark'] .navbar__item.navbar__link[href*='dapp']:hover {
+  background: linear-gradient(135deg, hsl(168, 80%, 54%) 0%, hsl(175, 85%, 46%) 100%) !important;
+  color: #091210 !important;
+  box-shadow: 0 0 24px hsla(168, 80%, 54%, 0.45);
+  transform: translateY(-1px);
 }
 
 /* Version badge */
