@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Understanding Charts & APY Metrics
 
-Every AI Hedge vault detail page provides real-time transparent metrics, historical performance charts, and underlying strategy breakdowns. This guide explains how to read each chart, how **Price Per Share (PPS)** measures real harvested yield, how **Instantaneous APY** is calculated, and the difference between **Forward-looking** and **Realized** strategy rates.
+Every AI Hedge vault detail page provides real-time transparent metrics, historical performance charts, underlying strategy breakdowns, and a complete on-chain activity ledger. This guide explains how to read each chart, how **Price Per Share (PPS)** measures real harvested yield, how **Instantaneous APY** is calculated, and how to track your personal position.
 
 ---
 
@@ -72,7 +72,7 @@ $$\text{Instantaneous APY}(t) = \sum_{i} \Big( w_i(t) \times \text{Strategy APY}
 Where:
 - $w_i(t)$ is the allocation percentage of total vault capital in Strategy $i$.
 - $\text{Strategy APY}_i(t)$ is the live yield rate of Strategy $i$.
-- $\text{Performance Fee}$ is deducted only from generated profits (e.g., 10%).
+- $\text{Performance Fee}$ is the vault-level fee deducted only from generated profits (e.g., 2%).
 
 ### Why Does the APY Curve Fluctuate?
 
@@ -114,7 +114,46 @@ graph TD
 
 ---
 
-## 5. Metrics Comparison Cheat Sheet
+## 5. "My Activity" Ledger & Cost Basis Tracking
+
+On every vault page, the **My Activity** card provides a transparent, personalized ledger of all interactions between your connected wallet and the vault.
+
+![My Activity Ledger](/img/dapp/vault_my_activity_card.png)
+
+### The 4 Activity Types
+
+The ledger categorizes transactions into four distinct on-chain events:
+
+1. **`DEPOSITED`** — Recorded when you deposit underlying assets (e.g., USDC) into the vault and mint newly issued vault shares (`aihUSDC`) at the prevailing on-chain PPS.
+2. **`WITHDRAWN`** — Recorded when you redeem your vault shares to burn them and receive your underlying principal plus all earned yield.
+3. **`RECEIVED`** — Recorded when vault share tokens are transferred into your wallet from an external address or third-party smart contract. The ledger automatically logs the exact **PPS at Transfer** for accurate cost basis tracking.
+4. **`SENT`** — Recorded when you transfer your vault shares out of your wallet to another recipient or protocol.
+
+### Calculating Your Personal Return (ROI)
+
+Because the ledger captures your **PPS at Transfer / Deposit**, you can calculate your exact percentage gain at any moment:
+
+$$\text{Personal Return (\%)} = \frac{\text{Current PPS} - \text{PPS at Transfer}}{\text{PPS at Transfer}} \times 100\%$$
+
+*Example:* If you received shares at a PPS of `1.0040` and the Current PPS is `1.0213`, your position has generated a $+1.72\%$ net return on principal.
+
+Clicking any transaction row opens the corresponding block explorer (Etherscan, Basescan, or Arbiscan) to verify the transaction hash, gas paid, and block timestamp.
+
+---
+
+## 6. Fee Structure (0% Management / 2% Performance)
+
+AI Hedge adheres to a transparent, performance-aligned fee model:
+
+- **Management Fee: 0%** — We charge zero recurring management or AUM fees. 100% of your deposited capital is actively put to work earning yield without balance decay.
+- **Vault Performance Fee: 2%** — A 2% performance fee is assessed strictly on net harvested profits during on-chain `report()` executions. If a strategy produces zero profit during a period, zero fee is charged.
+
+> [!NOTE]
+> **Illustrative Example**: Fee rates described above represent standard baseline parameters and are **subject to change**. For live, active parameters on any specific vault, always refer to the **Fees** and **Quick Stats** panel on the DApp interface.
+
+---
+
+## 7. Metrics Comparison Cheat Sheet
 
 | Metric | Classification | Computation Source | What It Tells You |
 | :--- | :--- | :--- | :--- |
@@ -126,10 +165,10 @@ graph TD
 
 ---
 
-## 6. Built on the ERC-4626 Vault Standard
+## 8. Built on the ERC-4626 Vault Standard
 
 AI Hedge yield vaults are built directly upon the standardized **ERC-4626 Tokenized Vault standard** and modular multi-strategy architecture:
 
 - **No Speculative Token Buffers:** Yield is never simulated. If an asset is not harvested into real vault capital, it is not reflected in PPS.
-- **Fair Fee Mechanics:** The 10% performance fee is assessed strictly upon successful `report()` harvest executions. If a strategy produces zero profit during a cycle, zero performance fee is taken.
+- **Fair Fee Mechanics:** The performance fee is assessed strictly upon successful `report()` harvest executions.
 - **Full On-Chain Verification:** You can click the contract addresses next to any vault or sub-strategy to independently verify every harvest report, transaction hash, and asset balance on Etherscan, Basescan, or Arbiscan.
