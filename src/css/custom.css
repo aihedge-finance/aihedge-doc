@@ -163,10 +163,10 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
   text-decoration: none;
 }
 
-/* Launch App button */
+/* Launch App button — Light Mode: clean light mint background with crisp teal text & border */
 .navbar__item.navbar__link[href*='dapp'] {
-  background: #0f172a;
-  color: #ffffff !important;
+  background: #e6fcf5;
+  color: #0f766e !important;
   font-weight: 600;
   font-size: 0.85rem;
   border-radius: 8px;
@@ -175,24 +175,25 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12), 0 1px 2px rgba(15, 23, 42, 0.08);
-  border: 1px solid rgba(15, 23, 42, 0.1);
+  border: 1px solid #99f6e4;
+  box-shadow: 0 1px 2px rgba(15, 118, 110, 0.08);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar__item.navbar__link[href*='dapp'] svg {
-  color: currentColor;
-  opacity: 0.85;
+  color: #0f766e;
 }
 
 .navbar__item.navbar__link[href*='dapp']:hover {
-  background: #1e293b !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+  background: #ccfbf1 !important;
+  color: #115e59 !important;
+  border-color: #5eead4 !important;
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.16);
   transform: translateY(-1px);
   text-decoration: none;
 }
 
+/* Launch App button — Dark Mode: vibrant glowing teal gradient */
 [data-theme='dark'] .navbar__item.navbar__link[href*='dapp'] {
   background: linear-gradient(135deg, hsl(168, 75%, 48%) 0%, hsl(175, 80%, 42%) 100%);
   color: #091210 !important;
