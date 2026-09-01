@@ -29,8 +29,10 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-/* Author avatar styling: preserve full, unclipped brand logo glyph */
+/* Author avatar styling: scaled to 36px to align with author name & title */
 .avatar__photo {
+  width: 36px !important;
+  height: 36px !important;
   border-radius: 0 !important;
   background: transparent !important;
   border: none !important;
