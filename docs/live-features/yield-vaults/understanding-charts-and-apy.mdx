@@ -1,0 +1,135 @@
+---
+title: Understanding Charts & APY Metrics
+sidebar_position: 2
+---
+
+# Understanding Charts & APY Metrics
+
+Every AI Hedge vault detail page provides real-time transparent metrics, historical performance charts, and underlying strategy breakdowns. This guide explains how to read each chart, how **Price Per Share (PPS)** measures real harvested yield, how **Instantaneous APY** is calculated, and the difference between **Forward-looking** and **Realized** strategy rates.
+
+---
+
+## 1. Top Performance Indicators
+
+At the top of each vault page, you will find five core metrics:
+
+```mermaid
+graph TD
+    A["Vault Metrics Hub"] --> B["Supply Available<br/>(Current Deposit Cap)"]
+    A --> C["FWD. APY<br/>(Live Forward Estimate)"]
+    A --> D["30D APY<br/>(Realized 30-Day Rate)"]
+    A --> E["Daily Rate<br/>(Per-Day Return)"]
+    A --> F["Last Harvest<br/>(Time Since Last On-Chain Report)"]
+```
+
+- **Supply Available:** The remaining deposit capacity available in the vault before reaching its current TVL risk ceiling.
+- **FWD. APY (Forward APY):** The estimated annualized return based on the **current instantaneous rates** of all active sub-strategies weighted by their capital allocation.
+- **30D APY (30-Day Historical APY):** The **realized, annualized return** achieved by the vault over the preceding 30 days based on physical share price growth.
+- **Daily Rate:** The estimated net return generated per 24 hours at current forward rates (e.g., `0.0168% / day`).
+- **Last Harvest:** The time elapsed since the vault's strategies last executed an on-chain accounting report (`report()`) to lock in and compound profits.
+
+---
+
+## 2. Price Chart: Price Per Share (PPS) — Real Harvested Yield
+
+By default, the vault chart displays the **PRICE** view. This tracks the **Price Per Share (PPS)** of the vault over time.
+
+![Vault Share Price (PPS) Chart](/img/dapp/vault_share_price_pps_chart.png)
+
+### What is Price Per Share (PPS)?
+
+In ERC-4626 standard vaults, you deposit assets (such as USDC) and receive vault share tokens (such as `aihUSDC`). The exchange rate is mathematically defined on-chain:
+
+$$\text{Price Per Share (PPS)} = \frac{\text{Total Underlying Assets in Vault}}{\text{Total Vault Shares Issued}}$$
+
+### Why PPS Represents Real, Harvested Yield
+
+1. **Initial Deposit:** When a vault launches, $1.0\text{ share} = 1.0000\text{ USDC}$.
+2. **Strategy Accrual:** As capital is deployed across Morpho, Curve, and Aave, interest and trading fees accumulate.
+3. **On-Chain Harvest (`report()`):** At regular intervals, the strategies execute an on-chain harvest. All accrued revenue is officially collected, converted into the underlying asset (USDC), and deposited directly into the vault balance.
+4. **Permanent Growth:** Because profits increase the total assets in the vault while the number of circulating user shares remains unchanged, the **Price Per Share permanently increases** (e.g., $1.0000 \rightarrow 1.0074 \rightarrow 1.0129 \rightarrow 1.0213$).
+5. **Redemption Value:** When you withdraw, your return is strictly determined by:
+
+$$\text{Redemption Payout} = \text{Your Shares} \times \text{Current PPS}$$
+
+> [!IMPORTANT]
+> **No Secondary Market Speculation**: Unlike token trading charts where prices fluctuate due to speculative buy/sell order books, the PPS chart reflects **pure on-chain accounting of physically realized cash-flow profits**. A rising curve represents verified, locked-in gains.
+
+---
+
+## 3. APY Chart: Instantaneous APY (Live Market Velocity)
+
+Clicking the **APY** button on the chart switches the display from cumulative share value to the **Historical Rate (Instantaneous APY)** over time.
+
+![Vault Historical Rate (APY) Chart](/img/dapp/vault_historical_rate_apy_chart.png)
+
+### How Instantaneous APY is Calculated
+
+Instantaneous APY represents the **annualized earning rate of the vault at a specific point in time**. It is calculated as the capital-weighted sum of each strategy's live yield minus vault performance fees:
+
+$$\text{Instantaneous APY}(t) = \sum_{i} \Big( w_i(t) \times \text{Strategy APY}_i(t) \Big) \times (1 - \text{Performance Fee})$$
+
+Where:
+- $w_i(t)$ is the allocation percentage of total vault capital in Strategy $i$.
+- $\text{Strategy APY}_i(t)$ is the live yield rate of Strategy $i$.
+- $\text{Performance Fee}$ is deducted only from generated profits (e.g., 10%).
+
+### Why Does the APY Curve Fluctuate?
+
+DeFi lending and liquidity markets are dynamic:
+
+- **Lending Utilization (Morpho / Aave):** When borrowing demand across DeFi rises, lending rates surge; during low-activity periods, rates moderate.
+- **Trading Volume & Volatility (Curve / AMMs):** Higher on-chain swap volume generates elevated trading fee velocity.
+- **Dynamic Rebalancing:** As the AI Hedge allocator shifts capital from lower-yielding pools into higher-yielding opportunities, the blended vault APY adjusts dynamically.
+
+The APY chart provides visibility into how market conditions and allocator decisions have shaped yield opportunities over preceding weeks.
+
+---
+
+## 4. Strategy Breakdown: Strategy APY vs. Harvested Yield
+
+Scrolling down on any vault detail page reveals the **Strategies Breakdown** section, featuring an allocation doughnut chart and a detailed breakdown table.
+
+![Vault Strategies Breakdown](/img/dapp/vault_strategies_breakdown.png)
+
+### Is Strategy APY Forward-Looking or Harvested?
+
+Each individual strategy row displays an **APY** and a **LAST REPORT** timestamp.
+
+```mermaid
+graph TD
+    A["Strategy APY (Live)"] -->|"Measures Live Protocol Rate"| B["Forward-Looking Yield<br/>(Lending interest / 7d fee velocity)"]
+    B -->|"Trigger On-Chain Harvest"| C["Strategy report()<br/>(Every 1-3 Days)"]
+    C -->|"Permanent On-Chain Booking"| D["Vault PPS Growth<br/>(Realized Harvested Yield)"]
+```
+
+1. **Strategy APY is Forward-Looking (Live / Projected Rate):**
+   - **Lending Strategies (e.g., Morpho USDC Compounder):** Displays the live variable supply rate per second derived from borrower utilization.
+   - **Liquidity Strategies (e.g., Curve rlUSD/USDC Strategy):** Displays the annualized fee rate calculated from recent 7-day swap volume velocity plus active base reward incentives.
+
+2. **Harvesting Converts Forward Yield into Realized PPS:**
+   - The strategy continuously accrues revenue within its smart contract.
+   - When the strategy calls `report()` (indicated by the **LAST REPORT** column, e.g., `3d ago`), all accrued profit is physically harvested, converted into underlying tokens, and booked into the vault.
+   - This event permanently increases the vault's **Price Per Share (PPS)**.
+
+---
+
+## 5. Metrics Comparison Cheat Sheet
+
+| Metric | Classification | Computation Source | What It Tells You |
+| :--- | :--- | :--- | :--- |
+| **Price Per Share (PPS)** | **Realized / Harvested** | On-chain contract state: `totalAssets() / totalSupply()` | The exact amount of underlying asset you will receive per share upon redemption right now. |
+| **FWD. APY** | **Forward-Looking** | Capital-weighted live strategy rates minus fees | The expected annualized yield if current market conditions remain steady. |
+| **30D APY** | **Realized Historical** | 30-day compound rate of change in PPS | The actual annualized return delivered over the last 30 days. |
+| **Strategy APY** | **Forward-Looking** | Real-time protocol supply rate / 7-day fee velocity | The current earning power of each specific sub-strategy. |
+| **Daily Rate** | **Forward-Looking** | $\text{FWD. APY} / 365$ | The estimated net yield accrued per day on your principal. |
+
+---
+
+## 6. Built on the ERC-4626 Vault Standard
+
+AI Hedge yield vaults are built directly upon the standardized **ERC-4626 Tokenized Vault standard** and modular multi-strategy architecture:
+
+- **No Speculative Token Buffers:** Yield is never simulated. If an asset is not harvested into real vault capital, it is not reflected in PPS.
+- **Fair Fee Mechanics:** The 10% performance fee is assessed strictly upon successful `report()` harvest executions. If a strategy produces zero profit during a cycle, zero performance fee is taken.
+- **Full On-Chain Verification:** You can click the contract addresses next to any vault or sub-strategy to independently verify every harvest report, transaction hash, and asset balance on Etherscan, Basescan, or Arbiscan.

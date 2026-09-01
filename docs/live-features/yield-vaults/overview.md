@@ -58,3 +58,11 @@ When evaluating a vault, consider:
 4. **Curator reputation** — check the curator's track record and strategy description
 
 Click any vault to open its detail page, which shows the full strategy breakdown, historical APY chart, and deposit/withdraw interface.
+
+---
+
+## Next Steps
+
+- **[Understanding Charts & APY Metrics](./understanding-charts-and-apy.mdx)** — Learn how Price Per Share (PPS), Instantaneous APY, and Strategy allocations are computed.
+- **[Depositing & Withdrawing](./deposit-withdraw.md)** — Step-by-step guide for standard and cross-chain deposits.
+

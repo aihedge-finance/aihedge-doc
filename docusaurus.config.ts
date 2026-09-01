@@ -1,6 +1,8 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 import packageJson from './package.json';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -9,6 +11,16 @@ const config: Config = {
   title: 'AI Hedge Documentation',
   tagline: 'The AI-Powered Decentralized Hedge Fund Protocol',
   favicon: 'img/logo/logo1.png',
+
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
+  ],
 
   headTags: [
     {
@@ -35,7 +47,6 @@ const config: Config = {
   onBrokenLinks: 'warn',
 
   markdown: {
-    // Treat .md as CommonMark (not MDX) to avoid JSX parse errors in math/LaTeX
     format: 'detect',
     hooks: {
       onBrokenMarkdownLinks: 'warn',
@@ -57,6 +68,8 @@ const config: Config = {
           // Serve docs at the site root (/) instead of /docs/
           routeBasePath: '/',
           editUrl: 'https://github.com/aihedge-finance/aihedge-doc/',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         blog: {
           path: 'letters',
@@ -68,6 +81,8 @@ const config: Config = {
           blogSidebarTitle: 'All Letters',
           blogSidebarCount: 'ALL',
           showReadingTime: true,
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
           feedOptions: {
             type: ['rss', 'atom'],
             title: 'AI Hedge — Letters to Partners',
