@@ -47,8 +47,25 @@ const config: Config = {
           routeBasePath: '/',
           editUrl: 'https://github.com/aihedge-finance/aihedge-doc/',
         },
-        // Blog is disabled — using an external blog system
-        blog: false,
+        blog: {
+          path: 'letters',
+          routeBasePath: 'letters',
+          blogTitle: 'Letters to Partners',
+          blogDescription:
+            'Periodic founder letters on AIHedge philosophy, strategy performance, risk management, and protocol evolution.',
+          postsPerPage: 'ALL',
+          blogSidebarTitle: 'All Letters',
+          blogSidebarCount: 'ALL',
+          showReadingTime: true,
+          feedOptions: {
+            type: ['rss', 'atom'],
+            title: 'AIHedge — Letters to Partners',
+            description:
+              'Annual and quarterly founder letters to partners, users, and the AIHedge community.',
+            copyright: `Copyright © ${new Date().getFullYear()} AIHedge Finance.`,
+            language: 'en',
+          },
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -94,6 +111,11 @@ const config: Config = {
           position: 'left',
         },
         {
+          to: '/letters',
+          label: 'Letters',
+          position: 'left',
+        },
+        {
           href: 'https://dapp.aihedge.finance',
           label: 'Launch App',
           position: 'right',
@@ -125,6 +147,10 @@ const config: Config = {
             {
               label: 'Introduction',
               to: '/',
+            },
+            {
+              label: 'Letters to Partners',
+              to: '/letters',
             },
             {
               label: 'Whitepaper',
