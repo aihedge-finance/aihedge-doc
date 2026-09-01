@@ -308,7 +308,7 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
   margin: 0 !important;
 }
 
-/* Borderless item with soft faded background */
+/* Borderless item with ultra-light faded background */
 [class*='sidebarItemLink_'],
 .sidebarItemLink {
   display: block !important;
@@ -316,17 +316,17 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
   line-height: 1.45 !important;
   font-weight: 500 !important;
   color: var(--ifm-color-content) !important;
-  background: rgba(0, 0, 0, 0.035);
+  background: #f8fafc;
   border: none !important;
   border-radius: 8px;
-  padding: 0.7rem 0.9rem !important;
+  padding: 0.65rem 0.85rem !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none !important;
 }
 
 [data-theme='dark'] [class*='sidebarItemLink_'],
 [data-theme='dark'] .sidebarItemLink {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.025);
 }
 
 [class*='sidebarItemLink_']:hover,
