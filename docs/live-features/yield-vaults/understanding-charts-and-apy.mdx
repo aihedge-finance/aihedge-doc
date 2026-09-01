@@ -17,16 +17,20 @@ At the top of each vault page, you will find five core metrics:
 graph TD
     A["Vault Metrics Hub"] --> B["Supply Available<br/>(Current Deposit Cap)"]
     A --> C["FWD. APY<br/>(Live Forward Estimate)"]
-    A --> D["30D APY<br/>(Realized 30-Day Rate)"]
+    A --> D["⭐ 30D APY<br/>(Realized 30-Day Rate)"]
     A --> E["Daily Rate<br/>(Per-Day Return)"]
     A --> F["Last Harvest<br/>(Time Since Last On-Chain Report)"]
 ```
 
 - **Supply Available:** The remaining deposit capacity available in the vault before reaching its current TVL risk ceiling.
 - **FWD. APY (Forward APY):** The estimated annualized return based on the **current instantaneous rates** of all active sub-strategies weighted by their capital allocation.
-- **30D APY (30-Day Historical APY):** The **realized, annualized return** achieved by the vault over the preceding 30 days based on physical share price growth.
+- **⭐ 30D APY (30-Day Historical APY):** The **realized, annualized return** achieved by the vault over the preceding 30 days based on physical share price growth. *(Recommended reference metric)*
 - **Daily Rate:** The estimated net return generated per 24 hours at current forward rates (e.g., `0.0168% / day`).
 - **Last Harvest:** The time elapsed since the vault's strategies last executed an on-chain accounting report (`report()`) to lock in and compound profits.
+
+> [!TIP]
+> **Which rate should you use as a benchmark?**
+> If you are looking for a single representative metric for reference, use the **⭐ 30D APY**. While **FWD. APY** reflects instantaneous conditions and strategy allocations at this exact moment, **30D APY** measures actual, realized share price compounding over the trailing 30 days, smoothing out short-term market noise.
 
 ---
 
@@ -45,7 +49,7 @@ $$\text{Price Per Share (PPS)} = \frac{\text{Total Underlying Assets in Vault}}{
 ### Why PPS Represents Real, Harvested Yield
 
 1. **Initial Deposit:** When a vault launches, $1.0\text{ share} = 1.0000\text{ USDC}$.
-2. **Strategy Accrual:** As capital is deployed across Morpho, Curve, and Aave, interest and trading fees accumulate.
+2. **Strategy Accrual:** As capital is deployed across Morpho, Moonwell, and Market Making pools, interest and trading fees accumulate.
 3. **On-Chain Harvest (`report()`):** At regular intervals, the strategies execute an on-chain harvest. All accrued revenue is officially collected, converted into the underlying asset (USDC), and deposited directly into the vault balance.
 4. **Permanent Growth:** Because profits increase the total assets in the vault while the number of circulating user shares remains unchanged, the **Price Per Share permanently increases** (e.g., $1.0000 \rightarrow 1.0074 \rightarrow 1.0129 \rightarrow 1.0213$).
 5. **Redemption Value:** When you withdraw, your return is strictly determined by:
@@ -76,40 +80,46 @@ Where:
 
 ### Why Does the APY Curve Fluctuate?
 
-DeFi lending and liquidity markets are dynamic:
+DeFi lending and market making venues are dynamic:
 
-- **Lending Utilization (Morpho / Aave):** When borrowing demand across DeFi rises, lending rates surge; during low-activity periods, rates moderate.
-- **Trading Volume & Volatility (Curve / AMMs):** Higher on-chain swap volume generates elevated trading fee velocity.
+- **Lending Utilization (Morpho / Moonwell):** When borrowing demand rises across money markets, lending rates surge; during low-activity periods, rates moderate.
+- **Market Making Velocity & Volatility:** Higher on-chain swap volume generates elevated trading fee velocity.
 - **Dynamic Rebalancing:** As the AI Hedge allocator shifts capital from lower-yielding pools into higher-yielding opportunities, the blended vault APY adjusts dynamically.
 
 The APY chart provides visibility into how market conditions and allocator decisions have shaped yield opportunities over preceding weeks.
 
 ---
 
-## 4. Strategy Breakdown: Strategy APY vs. Harvested Yield
+## 4. Strategy Breakdown: Dual Strategy APY (Projected vs. avg. 7d)
 
 Scrolling down on any vault detail page reveals the **Strategies Breakdown** section, featuring an allocation doughnut chart and a detailed breakdown table.
 
 ![Vault Strategies Breakdown](/img/dapp/vault_strategies_breakdown.png)
 
-### Is Strategy APY Forward-Looking or Harvested?
+### Understanding the Dual APY Values
 
-Each individual strategy row displays an **APY** and a **LAST REPORT** timestamp.
+In the strategies table, each active strategy row displays two complementary yield metrics:
 
 ```mermaid
 graph TD
-    A["Strategy APY (Live)"] -->|"Measures Live Protocol Rate"| B["Forward-Looking Yield<br/>(Lending interest / 7d fee velocity)"]
-    B -->|"Trigger On-Chain Harvest"| C["Strategy report()<br/>(Every 1-3 Days)"]
-    C -->|"Permanent On-Chain Booking"| D["Vault PPS Growth<br/>(Realized Harvested Yield)"]
+    A["Strategy APY Column"] --> B["Projected APY (Top)<br/>(Forward-Looking Oracle Estimate)"]
+    A --> C["avg. 7d (Bottom)<br/>(Realized 7-Day Net Historical APY)"]
+    B --> D["Real-Time Market Parameters & Incentives"]
+    C --> E["Actual Compounded On-Chain Harvest Reports"]
 ```
 
-1. **Strategy APY is Forward-Looking (Live / Projected Rate):**
-   - **Lending Strategies (e.g., Morpho USDC Compounder):** Displays the live variable supply rate per second derived from borrower utilization.
-   - **Liquidity Strategies (e.g., Curve rlUSD/USDC Strategy):** Displays the annualized fee rate calculated from recent 7-day swap volume velocity plus active base reward incentives.
+1. **Projected APY (Top / Primary):**
+   - **Definition:** A **forward-looking estimate** calculated by the strategy's oracle based on current market parameters, live borrowing demand, and active incentive programs.
+   - **Lending Strategies (e.g., Moonwell Flagship, Morpho):** Displays the live variable supply rate per second derived from borrower utilization.
+   - **Market Making Strategies (e.g., USDC Market Making):** Displays projected fee yields based on recent trading volume velocity and active reward rates.
 
-2. **Harvesting Converts Forward Yield into Realized PPS:**
+2. **avg. 7d (Bottom / Secondary):**
+   - **Definition:** The **realized historical net APY** earned on-chain over rolling 7-day harvest reports (`report()`), after deducting performance fees.
+   - **Why It Matters:** This measures the actual, verifiable cash-flow return delivered by the strategy over the preceding 7 days, smoothing out temporary spikes and proving physical on-chain profit delivery.
+
+3. **Harvesting Converts Yield into Permanent PPS:**
    - The strategy continuously accrues revenue within its smart contract.
-   - When the strategy calls `report()` (indicated by the **LAST REPORT** column, e.g., `3d ago`), all accrued profit is physically harvested, converted into underlying tokens, and booked into the vault.
+   - When the strategy calls `report()` (indicated by the **LAST REPORT** column, e.g., `44m ago` or `21h ago`), all accrued profit is physically harvested, converted into underlying tokens (USDC), and deposited into the vault.
    - This event permanently increases the vault's **Price Per Share (PPS)**.
 
 ---
@@ -135,7 +145,7 @@ Because the ledger captures your **PPS at Transfer / Deposit**, you can calculat
 
 $$\text{Personal Return (\%)} = \frac{\text{Current PPS} - \text{PPS at Transfer}}{\text{PPS at Transfer}} \times 100\%$$
 
-*Example:* If you received shares at a PPS of `1.0040` and the Current PPS is `1.0213`, your position has generated a $+1.72\%$ net return on principal.
+*Example:* If you received shares at a PPS of `0.9992` and the Current PPS is `1.0098`, your position has generated a $+1.06\%$ net return on principal.
 
 Clicking any transaction row opens the corresponding block explorer (Etherscan, Basescan, or Arbiscan) to verify the transaction hash, gas paid, and block timestamp.
 
@@ -159,8 +169,9 @@ AI Hedge adheres to a transparent, performance-aligned fee model:
 | :--- | :--- | :--- | :--- |
 | **Price Per Share (PPS)** | **Realized / Harvested** | On-chain contract state: `totalAssets() / totalSupply()` | The exact amount of underlying asset you will receive per share upon redemption right now. |
 | **FWD. APY** | **Forward-Looking** | Capital-weighted live strategy rates minus fees | The expected annualized yield if current market conditions remain steady. |
-| **30D APY** | **Realized Historical** | 30-day compound rate of change in PPS | The actual annualized return delivered over the last 30 days. |
-| **Strategy APY** | **Forward-Looking** | Real-time protocol supply rate / 7-day fee velocity | The current earning power of each specific sub-strategy. |
+| **⭐ 30D APY** | **Realized Historical** | 30-day compound rate of change in PPS | The actual annualized return delivered over the last 30 days. Recommended single reference metric for baseline comparisons. |
+| **Strategy Projected APY** | **Forward-Looking** | Real-time strategy oracle estimate based on market parameters | The instantaneous earning power and incentives of a specific sub-strategy. |
+| **Strategy avg. 7d APY** | **Realized Historical** | Rolling 7-day on-chain harvest reports net of fees | The actual historical net yield delivered by the sub-strategy over the past week. |
 | **Daily Rate** | **Forward-Looking** | $\text{FWD. APY} / 365$ | The estimated net yield accrued per day on your principal. |
 
 ---

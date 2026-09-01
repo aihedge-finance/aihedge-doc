@@ -104,6 +104,9 @@ You can withdraw your funds and accumulated earnings at any time.
 
 - **Vault Shares (`aihUSDC`)**: The receipt token you hold in your wallet. As the vault earns yield, each share becomes worth more underlying tokens.
 - **Price Per Share (PPS)**: The on-chain exchange rate between 1 vault share and the underlying asset (e.g., `1 aihUSDC = 1.0129 USDC`). As strategies harvest real cash-flow yield, PPS permanently increases so your shares redeem for more underlying assets upon withdrawal.
+- **Projected APY**: The forward-looking yield estimate calculated by a strategy's oracle based on live borrowing demand, pool utilization, and reward incentives.
+- **avg. 7d APY**: The realized historical net APY earned on-chain over rolling 7-day harvest reports (`report()`), after deducting performance fees.
+- **Market Making Strategy**: An automated algorithmic strategy that deploys capital to decentralized liquidity pools to earn swap fees and trading volume yield.
 - **Yield / APY**: The annual percentage return earned by the vault's automated strategies.
 - **Slippage**: The tiny difference between the quoted price and the actual executed price during a token swap.
 - **No Lockup**: Your funds remain liquid and can be withdrawn whenever you choose, subject to available market liquidity.
