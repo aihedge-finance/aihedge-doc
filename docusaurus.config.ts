@@ -101,11 +101,6 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://aihedge.finance/#curators',
-          label: 'Vault Creation',
-          position: 'left',
-        },
-        {
           href: 'https://aihedge.finance/partners',
           label: 'Ecosystem',
           position: 'left',
@@ -164,10 +159,6 @@ const config: Config = {
             {
               label: 'How It Works',
               href: 'https://aihedge.finance/#how-it-works',
-            },
-            {
-              label: 'Vault Creation',
-              href: 'https://aihedge.finance/#curators',
             },
             {
               label: 'Ecosystem',
