@@ -94,10 +94,11 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'AIHedge',
+      title: '',
       logo: {
         alt: 'AIHedge Logo',
-        src: 'img/logo/logo2.png',
+        src: 'img/logo/logo2-light.png',
+        srcDark: 'img/logo/logo2.png',
       },
       items: [
         {
