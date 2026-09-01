@@ -58,4 +58,4 @@ Flexible Earn currently offers savings pools for the following assets. All produ
 
 - APYs displayed are **current rates** and will fluctuate with lending market supply and demand.
 - All pools are backed by audited protocols (Morpho, Aave, MakerDAO).
-- There are no fees charged by AIHedge on Flexible Earn products at this time.
+- There are no fees charged by AI Hedge on Flexible Earn products at this time.

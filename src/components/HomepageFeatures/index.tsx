@@ -29,7 +29,7 @@ const FeatureList: FeatureItem[] = [
     gradient: 'linear-gradient(135deg, hsl(260,70%,62%) 0%, hsl(168,72%,52%) 100%)',
     description: (
       <>
-        Built on the ERC-4626 vault standard, AIHedge vaults are fully non-custodial.
+        Built on the ERC-4626 vault standard, AI Hedge vaults are fully non-custodial.
         Depositors retain sovereign exit rights at all times — no lock-ups, no
         permissions, no intermediaries.
       </>
@@ -74,7 +74,7 @@ export default function HomepageFeatures(): ReactNode {
             Built for serious capital
           </Heading>
           <p className={styles.sectionSubtitle}>
-            Every component of AIHedge is designed for institutional-grade
+            Every component of AI Hedge is designed for institutional-grade
             yield optimization — precise, transparent, and non-custodial.
           </p>
         </div>

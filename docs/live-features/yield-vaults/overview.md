@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Vaults Marketplace
 
-The Vaults Marketplace is the central hub of AIHedge — a curated listing of ERC-4626 multi-strategy yield vaults where you can browse, compare, and deposit assets to earn automated yield.
+The Vaults Marketplace is the central hub of AI Hedge — a curated listing of ERC-4626 multi-strategy yield vaults where you can browse, compare, and deposit assets to earn automated yield.
 
 ![Vaults Marketplace](/img/dapp/vaults_marketplace_1780574482429.png)
 

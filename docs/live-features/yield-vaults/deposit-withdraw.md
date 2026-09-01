@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Depositing & Withdrawing
 
-Interacting with AIHedge vaults is straightforward. You deposit a supported asset, receive vault shares in return, and can redeem those shares for your principal plus accumulated yield at any time.
+Interacting with AI Hedge vaults is straightforward. You deposit a supported asset, receive vault shares in return, and can redeem those shares for your principal plus accumulated yield at any time.
 
 ---
 

@@ -1,17 +1,17 @@
-# AIHedge Documentation
+# AI Hedge Documentation
 
 [![Built with Docusaurus](https://img.shields.io/badge/Built%20with-Docusaurus%203-blue)](https://docusaurus.io/)
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE.md)
 
-Official technical documentation for **AIHedge** — the AI-powered decentralized hedge fund protocol.
+Official technical documentation for **AI Hedge** — the AI-powered decentralized hedge fund protocol.
 
 🌐 **Live site:** [https://docs.aihedge.finance](https://docs.aihedge.finance)
 
 ---
 
-## About AIHedge
+## About AI Hedge
 
-AIHedge is an on-chain, non-custodial protocol that enables anyone to create, curate, and deploy AI-driven yield strategies through modular vaults. This documentation covers the protocol architecture, vault mechanics, strategy deployment, smart contract references, and developer guides.
+AI Hedge is an on-chain, non-custodial protocol that enables anyone to create, curate, and deploy AI-driven yield strategies through modular vaults. This documentation covers the protocol architecture, vault mechanics, strategy deployment, smart contract references, and developer guides.
 
 ## Quick Links
 

@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Flexible Savings Overview
 
-Flexible Earn is a savings-style product on AIHedge designed for users who want stable, predictable yield on stablecoins and blue-chip assets — without locking funds or managing complex strategies.
+Flexible Earn is a savings-style product on AI Hedge designed for users who want stable, predictable yield on stablecoins and blue-chip assets — without locking funds or managing complex strategies.
 
 ![Flexible Earn Overview](/img/dapp/flexible_earn_overview_1780575182114.png)
 
@@ -26,7 +26,7 @@ Key properties:
 ## How it Works
 
 1. You deposit a supported stable asset (e.g. USDC, USDT, DAI) into a Flexible Earn pool.
-2. AIHedge routes your funds across the best available lending market rates (Morpho, Aave) in real time.
+2. AI Hedge routes your funds across the best available lending market rates (Morpho, Aave) in real time.
 3. Interest accrues block-by-block and is automatically compounded.
 4. You can withdraw your full balance (principal + yield) at any time.
 

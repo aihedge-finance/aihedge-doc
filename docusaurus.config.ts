@@ -6,7 +6,7 @@ import packageJson from './package.json';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'AIHedge Documentation',
+  title: 'AI Hedge Documentation',
   tagline: 'The AI-Powered Decentralized Hedge Fund Protocol',
   favicon: 'img/logo/logo1.png',
 
@@ -63,17 +63,17 @@ const config: Config = {
           routeBasePath: 'letters',
           blogTitle: 'Letters to Partners',
           blogDescription:
-            'Periodic founder letters on AIHedge philosophy, strategy performance, risk management, and protocol evolution.',
+            'Periodic founder letters on AI Hedge philosophy, strategy performance, risk management, and protocol evolution.',
           postsPerPage: 'ALL',
           blogSidebarTitle: 'All Letters',
           blogSidebarCount: 'ALL',
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
-            title: 'AIHedge — Letters to Partners',
+            title: 'AI Hedge — Letters to Partners',
             description:
-              'Annual and quarterly founder letters to partners, users, and the AIHedge community.',
-            copyright: `Copyright © ${new Date().getFullYear()} AIHedge Finance.`,
+              'Annual and quarterly founder letters to partners, users, and the AI Hedge community.',
+            copyright: `Copyright © ${new Date().getFullYear()} AI Hedge Finance.`,
             language: 'en',
           },
         },
@@ -96,7 +96,7 @@ const config: Config = {
     navbar: {
       title: '',
       logo: {
-        alt: 'AIHedge Logo',
+        alt: 'AI Hedge Logo',
         src: 'img/logo/logo2-light.png',
         srcDark: 'img/logo/logo2.png',
       },
@@ -150,7 +150,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       logo: {
-        alt: 'AIHedge Logo',
+        alt: 'AI Hedge Logo',
         src: 'img/logo/logo2.png',
         href: 'https://aihedge.finance',
         width: 160,
@@ -224,7 +224,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} AIHedge Finance. Built with Docusaurus (v${packageJson.version}).`,
+      copyright: `Copyright © ${new Date().getFullYear()} AI Hedge Finance. Built with Docusaurus (v${packageJson.version}).`,
     },
     prism: {
       theme: prismThemes.github,

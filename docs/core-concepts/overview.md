@@ -5,13 +5,13 @@ sidebar_position: 1
 
 # Protocol Architecture
 
-This section describes the technical architecture and underlying workflow of the AIHedge protocol.
+This section describes the technical architecture and underlying workflow of the AI Hedge protocol.
 
 ---
 
 ## Core Smart Contracts
 
-The AIHedge protocol is implemented as a set of EVM-compatible smart contracts built upon Yearn V3 and ERC-4626:
+The AI Hedge protocol is implemented as a set of EVM-compatible smart contracts built upon Yearn V3 and ERC-4626:
 
 * **Protocol Registry**: Tracks all active yield vaults, asset registries, curators, and historical performance metrics.
 * **Yield Vault Layer (ERC-4626)**: Standardized multi-strategy vault templates managing user deposits, share accounting, limits, and strategy queues.

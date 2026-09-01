@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # Staking & Unstaking
 
-This guide walks you through staking ETH for liquid staking tokens (LSTs) and redeeming them back to ETH via the AIHedge DApp.
+This guide walks you through staking ETH for liquid staking tokens (LSTs) and redeeming them back to ETH via the AI Hedge DApp.
 
 ---
 

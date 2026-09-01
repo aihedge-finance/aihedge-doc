@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Liquid Staking Overview
 
-AIHedge integrates with leading Ethereum liquid staking protocols to let you earn ETH staking rewards without locking your ETH or running a validator node. You remain in full control of your assets at all times.
+AI Hedge integrates with leading Ethereum liquid staking protocols to let you earn ETH staking rewards without locking your ETH or running a validator node. You remain in full control of your assets at all times.
 
 ![Liquid Staking Section](/img/dapp/liquid_staking_landing_1780574852601.png)
 
@@ -25,7 +25,7 @@ The LST represents your staked ETH position and accrues staking rewards over tim
 
 ## Supported Protocols
 
-AIHedge currently integrates with:
+AI Hedge currently integrates with:
 
 | Protocol | LST Token | Description |
 |---|---|---|
@@ -36,12 +36,12 @@ AIHedge currently integrates with:
 
 ---
 
-## Why Use AIHedge for Liquid Staking?
+## Why Use AI Hedge for Liquid Staking?
 
 - **Unified interface** — access multiple staking protocols from one dashboard
-- **Optimized routing** — AIHedge routes to the best available yield across supported protocols
-- **Self-custody** — your LST tokens remain in your wallet; AIHedge never holds your assets
-- **Composability** — your LST can be deposited into AIHedge yield vaults for additional compounding yield on top of staking rewards
+- **Optimized routing** — AI Hedge routes to the best available yield across supported protocols
+- **Self-custody** — your LST tokens remain in your wallet; AI Hedge never holds your assets
+- **Composability** — your LST can be deposited into AI Hedge yield vaults for additional compounding yield on top of staking rewards
 
 ---
 

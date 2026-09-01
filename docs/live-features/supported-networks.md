@@ -5,7 +5,7 @@ sidebar_position: 1
 
 # Supported Networks & Wallets
 
-The AIHedge protocol and DApp interface support the following blockchain networks and Web3 wallets.
+The AI Hedge protocol and DApp interface support the following blockchain networks and Web3 wallets.
 
 ## Supported Networks
 
