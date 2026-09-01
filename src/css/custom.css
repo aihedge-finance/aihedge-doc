@@ -276,8 +276,7 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
   letter-spacing: -0.02em;
   color: var(--ifm-color-content) !important;
   margin-bottom: 1.25rem !important;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding-bottom: 0.25rem;
 }
 
 [class*='yearGroupHeading_'],
@@ -287,19 +286,19 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--ifm-color-content-secondary) !important;
-  padding: 0.2rem 0.6rem !important;
+  padding: 0.2rem 0.55rem !important;
   background: var(--ifm-color-emphasis-200);
-  border-radius: 5px;
+  border-radius: 4px;
   display: inline-block;
-  margin-top: 1.25rem !important;
-  margin-bottom: 0.75rem !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0.6rem !important;
 }
 
 [class*='sidebarItemList_'],
 .sidebarItemList {
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.55rem !important;
+  gap: 0.5rem !important;
   padding: 0 !important;
   list-style: none !important;
 }
@@ -309,7 +308,7 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
   margin: 0 !important;
 }
 
-/* Distinct card-item styling for each letter link in sidebar */
+/* Borderless item with soft faded background */
 [class*='sidebarItemLink_'],
 .sidebarItemLink {
   display: block !important;
@@ -317,17 +316,21 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
   line-height: 1.45 !important;
   font-weight: 500 !important;
   color: var(--ifm-color-content) !important;
-  background: var(--ifm-background-surface-color);
-  border: 1px solid var(--ifm-color-emphasis-200);
+  background: rgba(0, 0, 0, 0.035);
+  border: none !important;
   border-radius: 8px;
-  padding: 0.65rem 0.85rem !important;
+  padding: 0.7rem 0.9rem !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none !important;
 }
 
+[data-theme='dark'] [class*='sidebarItemLink_'],
+[data-theme='dark'] .sidebarItemLink {
+  background: rgba(255, 255, 255, 0.04);
+}
+
 [class*='sidebarItemLink_']:hover,
 .sidebarItemLink:hover {
-  border-color: var(--aihedge-teal) !important;
   background: var(--aihedge-teal-alpha) !important;
   color: var(--aihedge-teal) !important;
   transform: translateX(2px);
@@ -340,11 +343,8 @@ h3 { font-size: 1.25rem; line-height: 1.4; margin-top: 2rem; }
 [class*='sidebarItemLink_'][class*='Active'],
 [class*='sidebarItemLink_'].sidebarItemLinkActive {
   background: var(--aihedge-teal-alpha) !important;
-  border-color: var(--aihedge-teal) !important;
-  border-left: 3px solid var(--aihedge-teal) !important;
   color: var(--aihedge-teal) !important;
   font-weight: 600 !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* ─── Doc Content Area ───────────────────────────────────────────────────── */
