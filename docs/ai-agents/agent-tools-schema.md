@@ -7,6 +7,12 @@ sidebar_position: 3
 
 This reference provides standard **JSON Tool / Function Calling Schemas** for AI developers integrating AI Hedge ERC-4626 vaults into LLM frameworks including **OpenAI Function Calling**, **Anthropic Tool Use**, **Coinbase AgentKit**, **ElizaOS**, and **LangChain**.
 
+:::note[Developer / Advanced Topic]
+**Target Audience**: This technical reference is intended for **AI Developers, Bot Builders, and Software Engineers** integrating AI Hedge vaults into programmatic LLM agent pipelines (OpenAI Function Calling, Anthropic Tool Use, LangChain, Coinbase AgentKit, ElizaOS).
+
+If you are a non-coder looking for ready-to-use copy-paste prompts, see the **[Prompt Playbook for ChatGPT & Claude](./prompt-playbook)** instead.
+:::
+
 ---
 
 ## 1. OpenAI / Anthropic Tool Definitions

@@ -7,6 +7,13 @@ sidebar_position: 2
 
 This playbook provides copy-paste prompt templates for non-technical allocators, DAO operators, and "vibe coders" using ChatGPT, Claude, or Cursor to analyze, monitor, and interact with AI Hedge yield vaults.
 
+:::info[Prerequisite: Wallet Address & Secret Key Setup]
+Before using prompt templates that generate local scripts, bots, or transaction payloads:
+1. **Public Wallet Address**: You will need your EVM public address (e.g. `0x...`) to track positions and format calldata.
+2. **Wallet Secret / Private Key**: For automated bots or script execution, you will need the secret private key belonging to your wallet. If you need help locating it, see the complete guide: **➡️ [Finding Your Wallet Secret & Private Key](./wallet-secrets-guide)**.
+3. **Dedicated Agent Wallet**: We strongly recommend creating a dedicated sub-wallet with limited funds for agent tasks. **Never** input raw private keys or seed phrases into public web LLM chat interfaces.
+:::
+
 ---
 
 ## 1. System Prompt for Custom GPT / Claude Project
