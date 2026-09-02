@@ -54,6 +54,10 @@ const config: Config = {
     mermaid: true,
   },
 
+  clientModules: [
+    './src/clientModules/formbricks.ts',
+  ],
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],

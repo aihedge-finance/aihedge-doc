@@ -1,0 +1,234 @@
+.feedbackContainer {
+  margin: 2.5rem 0 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='dark'] .feedbackContainer {
+  background: rgba(22, 27, 34, 0.7);
+  border-color: rgba(48, 54, 61, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.stepOneRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.feedbackTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feedbackButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.feedbackBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+}
+
+.feedbackBtn:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] .feedbackBtn {
+  background: #161b22;
+  border-color: #30363d;
+}
+
+[data-theme='dark'] .feedbackBtn:hover {
+  background: #21262d;
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--aihedge-glow);
+}
+
+/* Step 2: Elaborate Form */
+.stepTwoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.stepTwoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepTwoTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+}
+
+.tagGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tagBtn {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 20px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-content-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tagBtn:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.tagBtnActive {
+  background: var(--aihedge-teal-alpha, rgba(20, 184, 166, 0.15)) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: var(--ifm-color-primary) !important;
+  font-weight: 600;
+}
+
+[data-theme='dark'] .tagBtn {
+  background: #161b22;
+  border-color: #30363d;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 72px;
+  padding: 0.65rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+  resize: vertical;
+  transition: border-color 0.15s ease;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px var(--aihedge-teal-alpha, rgba(20, 184, 166, 0.2));
+}
+
+[data-theme='dark'] .textarea {
+  background: #0d1117;
+  border-color: #30363d;
+}
+
+.formActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.submitBtn {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  background: var(--ifm-color-primary);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.submitBtn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.skipBtn {
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: none;
+  background: none;
+  color: var(--ifm-color-content-secondary);
+  cursor: pointer;
+}
+
+.skipBtn:hover {
+  color: var(--ifm-color-content);
+}
+
+/* Step 3: Thank You */
+.thankYouContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.thankYouText {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+.formbricksLink {
+  font-size: 0.8rem;
+  color: var(--ifm-color-content-secondary);
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.formbricksLink:hover {
+  color: var(--ifm-color-primary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
