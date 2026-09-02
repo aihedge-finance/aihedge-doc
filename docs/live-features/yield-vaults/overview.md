@@ -1,13 +1,13 @@
 ---
-title: Vaults Marketplace
+title: Curated Vaults
 sidebar_position: 1
 ---
 
-# Vaults Marketplace
+# Curated Vaults
 
-The Vaults Marketplace is the central hub of AI Hedge — a curated listing of ERC-4626 multi-strategy yield vaults where you can browse, compare, and deposit assets to earn automated yield.
+Curated Vaults are the central hub of AI Hedge — a hand-picked selection of ERC-4626 multi-strategy yield vaults where you can browse, compare, and deposit assets to earn automated yield.
 
-![Vaults Marketplace](/img/dapp/vaults_marketplace_1780574482429.png)
+![Curated Vaults](/img/dapp/vaults_marketplace_1780574482429.png)
 
 ---
 
@@ -22,9 +22,9 @@ A vault is a smart contract that accepts a single asset (e.g. USDC, ETH) and rou
 
 ---
 
-## Reading the Marketplace
+## Reading the Vault Cards
 
-Each vault card in the marketplace shows:
+Each vault card shows:
 
 | Field | Description |
 |---|---|

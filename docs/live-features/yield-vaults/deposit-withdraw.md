@@ -15,7 +15,7 @@ Use this method when you already hold the required token on the same network whe
 
 ### Step-by-Step
 
-1. **Select a Vault** — From the **Vaults Marketplace**, click the vault you wish to join.
+1. **Select a Vault** — From the **Curated Vaults** list, click the vault you wish to join.
 2. **Enter Amount** — Type the amount you want to deposit, or click **Max**.
 3. **Approve Token (First Time Only)** — If this is your first deposit, click **Approve** and confirm in your wallet.
 4. **Confirm Deposit** — Click **Deposit** and sign the transaction in your wallet. You will receive ERC-4626 vault share tokens representing your yield-bearing balance.
