@@ -62,22 +62,24 @@ Please calculate:
 
 ---
 
-### Prompt B: "Prepare Safe Transaction Builder Calldata"
-Use this prompt when you need to execute a deposit or redemption through a **Gnosis Safe Multisig** without writing any code:
+### Prompt B: "Generate a Deposit Script for My Personal Wallet"
+Use this prompt to ask ChatGPT or Claude to generate a standalone Python script that approves and deposits USDC using your single-person personal or agent wallet (private key loaded safely from a `.env` file):
 
 ```markdown
-I need to execute a deposit of [INSERT AMOUNT, e.g. 25000] USDC into the AI Hedge Vault on Base.
+Write a beginner-friendly Python script using Web3.py to deposit [INSERT AMOUNT, e.g. 500] USDC into the AI Hedge Vault on Base.
 
-Contract Details:
+Contract & Network Details:
 - Vault Address: 0x100f0ac3be2c93c76b2ee1b8ca98d8928cdc0871
-- USDC Asset Address: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
-- My Safe Address: [INSERT YOUR SAFE ADDRESS]
+- USDC Asset Address: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 (6 decimals)
+- Base RPC: https://mainnet.base.org
 
-Please generate the exact step-by-step inputs for the Gnosis Safe Transaction Builder:
-1. Transaction 1: USDC.approve(vaultAddress, amountInWei)
-2. Transaction 2: Vault.deposit(assetsInWei, receiverAddress)
-
-Include the exact decimal conversions (USDC has 6 decimals) and function signatures so I can paste them directly into Safe UI.
+Requirements:
+1. Load my wallet private key securely from a `.env` file (`PRIVATE_KEY=0x...`).
+2. Check my USDC balance and ETH gas balance before sending transactions.
+3. Check current USDC allowance and call `USDC.approve(vaultAddress, amount)` if needed.
+4. Call `Vault.deposit(amount, my_wallet_address)`.
+5. Wait for transaction receipt and print the final vault shares received.
+6. Provide clear, step-by-step instructions on how to install requirements and run the script locally.
 ```
 
 ---
@@ -109,3 +111,35 @@ Please:
 2. Calculate the minimum acceptable shares out at 0.1%, 0.5%, and 1.0% slippage tolerances.
 3. Format the exact parameters for `deposit(uint256 assets, address receiver)`.
 ```
+
+---
+
+## 3. Advanced Prompts: DAO Treasuries & Safe Multisig
+
+:::note[Advanced Topic: Multi-Signature Treasuries]
+**Target Audience**: This section is intended for **DAO Treasury Managers and multi-signature operators** who manage collective funds using [Safe (formerly Gnosis Safe)](https://app.safe.global). 
+
+* **What is a Safe Address?**: It is the smart contract address of your shared Safe multisig wallet (`0x...`). When depositing via the Safe Transaction Builder, setting `receiverAddress` to your Safe Address ensures minted vault shares are credited to the DAO treasury rather than an individual signer's personal wallet.
+* Individual allocators using a standard personal wallet (MetaMask, Rabby, Coinbase Wallet) should use the single-wallet templates in **Section 2** above.
+:::
+
+### Prompt E: "Prepare Safe Transaction Builder Calldata"
+Use this prompt when you need to batch approvals and deposits through a **Safe Multisig** without writing any code:
+
+```markdown
+I need to execute a deposit of [INSERT AMOUNT, e.g. 25000] USDC into the AI Hedge Vault on Base using the Safe Transaction Builder.
+
+Contract Details:
+- Vault Address: 0x100f0ac3be2c93c76b2ee1b8ca98d8928cdc0871
+- USDC Asset Address: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+- My Safe Multisig Address: [INSERT YOUR SAFE CONTRACT ADDRESS, e.g. 0x...]
+
+Please generate the exact step-by-step inputs for the Safe Transaction Builder (app.safe.global):
+1. Transaction 1: USDC.approve(vaultAddress, amountInWei)
+2. Transaction 2: Vault.deposit(assetsInWei, receiverAddress)
+
+Note:
+- Set `receiverAddress` to my Safe Multisig Contract Address so the shares stay in the treasury.
+- Include the exact decimal conversions (USDC has 6 decimals) and function signatures so I can paste them directly into Safe UI.
+```
+
