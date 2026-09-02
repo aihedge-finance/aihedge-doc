@@ -146,6 +146,11 @@ const config: Config = {
           position: 'left',
         },
         {
+          to: '/developers/overview',
+          label: 'Developers',
+          position: 'left',
+        },
+        {
           href: 'https://dapp.aihedge.finance',
           label: 'Launch App',
           position: 'right',
@@ -166,7 +171,8 @@ const config: Config = {
       style: 'dark',
       logo: {
         alt: 'AI Hedge Logo',
-        src: 'img/logo/logo2.png',
+        src: 'img/logo/logo2-light.png',
+        srcDark: 'img/logo/logo2.png',
         href: 'https://aihedge.finance',
         width: 160,
       },
