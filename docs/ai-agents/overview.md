@@ -33,15 +33,14 @@ AI Hedge is non-custodial and has no access to or control over your wallet crede
 
 ## 🎯 Which Guide Is Right for You?
 
-Choose the single path below that matches what you want to do:
+Choose the path below that matches what you want to do in this section:
 
-| Your Persona / Role | Your Goal | Recommended Path |
+| Your Persona / Role | Your Goal | Recommended Guide |
 |---|---|---|
-| 🌐 **Standard Web User** | *"I just want to deposit USDC and earn yield via the normal website."* | ➡️ **[dApp Web UI Guide](../live-features/yield-vaults/deposit-withdraw)**<br/>*(No AI or coding required)* |
-| 💬 **Prompter / Non-Coder** | *"I want to ask ChatGPT or Claude to analyze my earnings, check APY, or help me prepare transactions."* | ➡️ **[Prompt Playbook (ChatGPT & Claude)](./prompt-playbook)**<br/>*(Copy-paste prompt templates)* |
+| 💬 **Prompter / Non-Coder** | *"I want to ask ChatGPT or Claude to analyze my earnings, check APY, or generate personal wallet scripts."* | ➡️ **[Prompt Playbook (ChatGPT & Claude)](./prompt-playbook)**<br/>*(Copy-paste prompt templates)* |
 | 🤖 **AI Agent Builder** | *"I am building an autonomous AI agent, bot, or copilot and need JSON schemas for LLM tool calling."* | ➡️ **[Tool Calling & Function Schemas](./agent-tools-schema)**<br/>*(OpenAI, Anthropic, AgentKit, ElizaOS)* |
-| 🏛️ **DAO Treasury / Power User** *(Advanced)* | *"I manage a Gnosis Safe multisig or want to execute deposits directly via block explorers / n8n."* | ➡️ **[No-Code Automation & Workflows](./no-code-workflows)**<br/>*(Visual multisig & webhook recipes)* |
-| 💻 **Software Developer** | *"I want to write custom Solidity contracts, TypeScript (Viem/Ethers), or Python integration code."* | ➡️ **[Developer Integration Hub](../developers/overview)**<br/>*(Smart contracts & SDK guides)* |
+| 🏛️ **DAO Treasury / Power User** *(Advanced)* | *"I manage a Safe multisig or want to execute deposits directly via block explorers / n8n."* | ➡️ **[No-Code Automation & Workflows](./no-code-workflows)**<br/>*(Visual multisig & webhook recipes)* |
+| 🔑 **Bot & Script Operator** | *"I need to export and manage private keys securely for my automated script or agent wallet."* | ➡️ **[Finding Your Wallet Secret & Private Key](./wallet-secrets-guide)**<br/>*(Key export & dedicated sub-wallets)* |
 
 ---
 
