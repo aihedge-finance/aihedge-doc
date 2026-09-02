@@ -15,20 +15,20 @@ Flexible Earn currently offers savings pools for the following assets. All produ
 
 ### USDC Savings
 - **Asset:** USD Coin (USDC)
-- **Underlying:** Morpho / Aave USDC lending markets
+- **Underlying:** Decentralized USDC lending markets
 - **APY:** Variable — follows real-time lending demand
 - **Network:** Ethereum, Base, Arbitrum
 
 ### USDT Savings
 - **Asset:** Tether (USDT)
-- **Underlying:** Aave USDT lending markets
+- **Underlying:** Decentralized USDT lending markets
 - **APY:** Variable
 - **Network:** Ethereum, BNB Chain
 
 ### DAI / sDAI
 - **Asset:** DAI (MakerDAO)
-- **Underlying:** MakerDAO DSR (DAI Savings Rate) + Morpho
-- **APY:** Partially fixed (DSR floor) + variable top-up
+- **Underlying:** On-chain savings rate + money market lending
+- **APY:** Partially fixed + variable top-up
 - **Network:** Ethereum
 
 ---
@@ -57,5 +57,5 @@ Flexible Earn currently offers savings pools for the following assets. All produ
 ## Notes
 
 - APYs displayed are **current rates** and will fluctuate with lending market supply and demand.
-- All pools are backed by audited protocols (Morpho, Aave, MakerDAO).
+- All pools are backed by battle-tested, audited smart contracts.
 - There are no fees charged by AI Hedge on Flexible Earn products at this time.

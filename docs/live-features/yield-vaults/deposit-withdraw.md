@@ -82,8 +82,9 @@ Here is what each item means in simple terms:
 3. **Confirm Deposit**: Click **Deposit** (or **Swap & Deposit**) and confirm the transaction in your connected wallet.
 4. **Execution**: The system automatically executes the transaction (and any necessary cross-chain swaps/bridges) and mints your vault shares. Once confirmed on-chain, your deposit balance and activity history update immediately.
 
-> [!TIP]
-> **No Destination Gas Needed**: When using cross-chain deposits, you only pay gas on the source network where you initiate the deposit. The routing mechanism manages destination execution seamlessly.
+:::tip[No Destination Gas Needed]
+When using cross-chain deposits, you only pay gas on the source network where you initiate the deposit. The routing mechanism manages destination execution seamlessly.
+:::
 
 ---
 

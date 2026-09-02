@@ -28,9 +28,9 @@ graph TD
 - **Daily Rate:** The estimated net return generated per 24 hours at current forward rates (e.g., `0.0168% / day`).
 - **Last Harvest:** The time elapsed since the vault's strategies last executed an on-chain accounting report (`report()`) to lock in and compound profits.
 
-> [!TIP]
-> **Which rate should you use as a benchmark?**
-> If you are looking for a single representative metric for reference, use the **⭐ 30D APY**. While **FWD. APY** reflects instantaneous conditions and strategy allocations at this exact moment, **30D APY** measures actual, realized share price compounding over the trailing 30 days, smoothing out short-term market noise.
+:::tip[Which rate should you use as a benchmark?]
+If you are looking for a single representative metric for reference, use the **⭐ 30D APY**. While **FWD. APY** reflects instantaneous conditions and strategy allocations at this exact moment, **30D APY** measures actual, realized share price compounding over the trailing 30 days, smoothing out short-term market noise.
+:::
 
 ---
 
@@ -49,15 +49,16 @@ $$\text{Price Per Share (PPS)} = \frac{\text{Total Underlying Assets in Vault}}{
 ### Why PPS Represents Real, Harvested Yield
 
 1. **Initial Deposit:** When a vault launches, $1.0\text{ share} = 1.0000\text{ USDC}$.
-2. **Strategy Accrual:** As capital is deployed across Morpho, Moonwell, and Market Making pools, interest and trading fees accumulate.
+2. **Strategy Accrual:** As capital is deployed across money markets, liquidity pools, and market making strategies, interest and trading fees accumulate.
 3. **On-Chain Harvest (`report()`):** At regular intervals, the strategies execute an on-chain harvest. All accrued revenue is officially collected, converted into the underlying asset (USDC), and deposited directly into the vault balance.
 4. **Permanent Growth:** Because profits increase the total assets in the vault while the number of circulating user shares remains unchanged, the **Price Per Share permanently increases** (e.g., $1.0000 \rightarrow 1.0074 \rightarrow 1.0129 \rightarrow 1.0213$).
 5. **Redemption Value:** When you withdraw, your return is strictly determined by:
 
 $$\text{Redemption Payout} = \text{Your Shares} \times \text{Current PPS}$$
 
-> [!IMPORTANT]
-> **No Secondary Market Speculation**: Unlike token trading charts where prices fluctuate due to speculative buy/sell order books, the PPS chart reflects **pure on-chain accounting of physically realized cash-flow profits**. A rising curve represents verified, locked-in gains.
+:::info[No Secondary Market Speculation]
+Unlike token trading charts where prices fluctuate due to speculative buy/sell order books, the PPS chart reflects **pure on-chain accounting of physically realized cash-flow profits**. A rising curve represents verified, locked-in gains.
+:::
 
 ---
 
@@ -82,7 +83,7 @@ Where:
 
 DeFi lending and market making venues are dynamic:
 
-- **Lending Utilization (Morpho / Moonwell):** When borrowing demand rises across money markets, lending rates surge; during low-activity periods, rates moderate.
+- **Lending Utilization:** When borrowing demand rises across money markets, lending rates surge; during low-activity periods, rates moderate.
 - **Market Making Velocity & Volatility:** Higher on-chain swap volume generates elevated trading fee velocity.
 - **Dynamic Rebalancing:** As the AI Hedge allocator shifts capital from lower-yielding pools into higher-yielding opportunities, the blended vault APY adjusts dynamically.
 
@@ -105,13 +106,13 @@ graph TD
     A["Strategy APY Column"] --> B["Projected APY (Top)<br/>(Forward-Looking Oracle Estimate)"]
     A --> C["avg. 7d (Bottom)<br/>(Realized 7-Day Net Historical APY)"]
     B --> D["Real-Time Market Parameters & Incentives"]
-    C --> E["Actual Compounded On-Chain Harvest Reports"]
+    E["Actual Compounded On-Chain Harvest Reports"] --> C
 ```
 
 1. **Projected APY (Top / Primary):**
    - **Definition:** A **forward-looking estimate** calculated by the strategy's oracle based on current market parameters, live borrowing demand, and active incentive programs.
-   - **Lending Strategies (e.g., Moonwell Flagship, Morpho):** Displays the live variable supply rate per second derived from borrower utilization.
-   - **Market Making Strategies (e.g., USDC Market Making):** Displays projected fee yields based on recent trading volume velocity and active reward rates.
+   - **Lending Strategies:** Displays the live variable supply rate per second derived from borrower utilization.
+   - **Market Making Strategies:** Displays projected fee yields based on recent trading volume velocity and active reward rates.
 
 2. **avg. 7d (Bottom / Secondary):**
    - **Definition:** The **realized historical net APY** earned on-chain over rolling 7-day harvest reports (`report()`), after deducting performance fees.
@@ -158,8 +159,9 @@ AI Hedge adheres to a transparent, performance-aligned fee model:
 - **Management Fee: 0%** — We charge zero recurring management or AUM fees. 100% of your deposited capital is actively put to work earning yield without balance decay.
 - **Vault Performance Fee: 2%** — A 2% performance fee is assessed strictly on net harvested profits during on-chain `report()` executions. If a strategy produces zero profit during a period, zero fee is charged.
 
-> [!NOTE]
-> **Illustrative Example**: Fee rates described above represent standard baseline parameters and are **subject to change**. For live, active parameters on any specific vault, always refer to the **Fees** and **Quick Stats** panel on the DApp interface.
+:::note[Illustrative Example]
+Fee rates described above represent standard baseline parameters and are **subject to change**. For live, active parameters on any specific vault, always refer to the **Fees** and **Quick Stats** panel on the DApp interface.
+:::
 
 ---
 

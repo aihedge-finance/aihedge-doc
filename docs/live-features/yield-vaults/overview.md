@@ -40,7 +40,7 @@ Each vault card shows:
 
 Vaults are categorized by their underlying strategy composition:
 
-- **Conservative** — Primarily lending markets (Aave, Morpho). Low volatility, stable APY.
+- **Conservative** — Primarily blue-chip lending and money markets. Low volatility, stable APY.
 - **Balanced** — Mix of lending + liquidity provision. Moderate risk/reward.
 - **Aggressive** — Higher-yield strategies including leverage or concentrated LP positions.
 
