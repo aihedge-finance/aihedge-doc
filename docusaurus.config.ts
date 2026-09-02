@@ -125,13 +125,18 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: '/letters',
-          label: 'Letters',
+          to: '/ai-agents/overview',
+          label: 'AI Agent',
           position: 'left',
         },
         {
           to: '/developers/overview',
           label: 'Developers',
+          position: 'left',
+        },
+        {
+          to: '/letters',
+          label: 'Letter to Partners',
           position: 'left',
         },
         {
