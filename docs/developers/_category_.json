@@ -3,6 +3,6 @@
   "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "Developer references, contract addresses, and integration guides."
+    "description": "Smart contract integration, ERC-4626 specifications, contract addresses, and integration guides for AI Hedge Vaults."
   }
 }
