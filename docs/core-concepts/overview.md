@@ -15,7 +15,9 @@ The AI Hedge protocol is implemented as a set of EVM-compatible smart contracts 
 
 * **Protocol Registry**: Tracks all active yield vaults, asset registries, curators, and historical performance metrics.
 * **Yield Vault Layer (ERC-4626)**: Standardized multi-strategy vault templates managing user deposits, share accounting, limits, and strategy queues.
-* **Strategy Adaptors**: Standardized execution adapters that deploy and withdraw capital directly to and from underlying money markets, liquidity pools, and yield protocols.
+* **Strategy Execution Layer & Adaptors**: Standardized execution adapters that deploy and withdraw capital directly across:
+  * **In-House Strategies & Risk Management**: Proprietary algorithmic market making, quantitative capital routing, dynamic hedging, and in-house automated risk management guardrails.
+  * **Integrated DeFi Protocols**: Standardized adapters connecting to leading verified money markets and liquidity pools (e.g., Aave, Morpho, Uniswap V3, Fluid, Yearn).
 
 ---
 
@@ -31,7 +33,7 @@ graph LR
 ```
 
 1. **State Observation**: Off-chain agents query blockchain parameters including liquidity pool APYs, lending demand rates, historical yields, and gas cost structures.
-2. **Strategy Generation**: The AI engine processes the observed state to compute the optimal weight allocation across strategies.
+2. **Strategy Generation**: The AI engine processes the observed state to compute optimal weight allocations across in-house and external strategies under strict risk guardrails.
 3. **On-Chain Execution**: The calculated allocation is submitted to the vault manager or execution contract to adjust strategy deposits, rebalance liquidity, and auto-compound rewards.
 
 ---
