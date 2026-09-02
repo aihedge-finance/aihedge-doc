@@ -114,6 +114,8 @@ const config: Config = {
         alt: 'AI Hedge Logo',
         src: 'img/logo/logo2-light.png',
         srcDark: 'img/logo/logo2.png',
+        href: 'https://aihedge.finance',
+        target: '_self',
       },
       items: [
         {
@@ -121,24 +123,6 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Docs',
-        },
-        {
-          href: 'https://aihedge.finance/#how-it-works',
-          label: 'How It Works',
-          position: 'left',
-        },
-        /*
-        // Hidden for now — uncomment when Vault Creation is ready:
-        {
-          href: 'https://aihedge.finance/#curators',
-          label: 'Vault Creation',
-          position: 'left',
-        },
-        */
-        {
-          href: 'https://aihedge.finance/partners',
-          label: 'Ecosystem',
-          position: 'left',
         },
         {
           to: '/letters',
