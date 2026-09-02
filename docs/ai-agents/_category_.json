@@ -1,0 +1,8 @@
+{
+  "label": "AI Agent Integration",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Guides, prompt playbooks, tool-calling schemas, and no-code recipes for interacting with AI Hedge ERC-4626 vaults using AI agents and LLMs."
+  }
+}
